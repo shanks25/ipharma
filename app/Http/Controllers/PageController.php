@@ -58,7 +58,20 @@ class PageController extends Controller {
         $data['featured_products'] = Product::with('media', 'terms', 'brandattrOptions.attributeValue')->findMany(option('featured-product'));
 //        return $data['featured_products'][0]->brandattrOptions->attributeValue->discount_percentage;
         $data['collections'] = Category::with('products', 'products.media', 'products.brandattrOptions.attributeValue')->findMany(option('collections'));
-        return Theme::view('index', $data);
+            $data['count'] = 0;
+              $data;
+        // return Theme::view('index', $data);
+        return view('frontend.index', $data);
+    }
+
+        public function olddesign() {
+        $data['categories'] = Category::with('media')->findMany(option('popular-category'));
+//        $data['products'] = Product::with('media', 'categories')->take(10)->orderBy('products.id', 'DESC')->get();
+        $data['featured_products'] = Product::with('media', 'terms', 'brandattrOptions.attributeValue')->findMany(option('featured-product'));
+//        return $data['featured_products'][0]->brandattrOptions->attributeValue->discount_percentage;
+        $data['collections'] = Category::with('products', 'products.media', 'products.brandattrOptions.attributeValue')->findMany(option('collections'));
+      return Theme::view('index', $data);
+       
     }
 
     public function mail_body($id) {

@@ -1162,20 +1162,10 @@ if(date.getHours() >= 19 ){
                         type: "POST",
                         url: "{{URL::to('get-area-shipping-value')}}",
                         data: {areaId: areaId, _token: token},
-                        success: function (res) {
-                            $('.shipping-fee').text(res);
-                            var cuppon = $('.cuppon-dis').text();
-                            var shippingFee = res;
-                            var totalWship = parseFloat(subTotal) + parseFloat(shippingFee);
-                            if(subTotal >= 10000){
-                                var totalDis = (parseFloat(subTotal)*2)/100;
-                            }else{
-                                var totalDis = 0;
-                            }
-                            var dis_for_bank = $('.bank-dis').text();
+                                    var dis_for_bank = $('.bank-dis').text();
                             //            alert(totalDis);
                             var total = ((totalWship - parseFloat(cuppon)) - totalDis).toFixed(2) - dis_for_bank;
-                            //            var total = (((subTotal + shippingFee) - cuppon) - totalDis);
+                    //            var total = (((subTotal + shippingFee) - cuppon) - totalDis);
                             $('.grand-total').text(total);
                         }
                     });

@@ -13,12 +13,13 @@
 
 
 
-
+  Route::get('/test', 'PageController@index')->name('newdesign');
   Route::group([], function() {
 
     Route::get('invoice/{id}', 'PageController@mail_body');
 
-    Route::get('/', 'PageController@index')->name('home');
+
+    Route::get('/', 'PageController@olddesign')->name('home');
     Route::get('pdf', 'PageController@pdf') ;
     Route::get('export', 'PageController@export') ;
     Route::get('category/{slug}', 'PageController@category');
@@ -49,6 +50,7 @@
     Route::post('post-login', 'PageController@post_login');
     Route::get('login', 'PageController@login');
     Route::post('login', 'Auth\LoginController@login');
+    Route::get('logout', 'Auth\LoginController@logout');
     Route::get('registration', 'PageController@registration');
     Route::post('registration', 'Auth\RegisterController@create');
     Route::get('check-pin', 'PageController@check_pin');
@@ -70,15 +72,15 @@
     Route::post('applycoupon','CouponController@store')->name('applycoupon.store');
     Route::post('deliverytype','CouponController@deliverytype')->name('applycharges');
     Route::delete('applycoupon','CouponController@destroy')->name('applycoupon.destroy');
-     
-        Route::group(['middleware' => 'auth'], function() {
+
+    Route::group(['middleware' => 'auth'], function() {
         Route::get('customer/account/index', 'PageController@user_index');
         Route::get('customer/account/edit', 'PageController@user_edit');
         Route::get('customer/address/new', 'PageController@useraddresslist');
         Route::get('customer/address/latest', 'PageController@addnewuseraddress')->name('addnewuseraddress');
         Route::post('customer/address/latest', 'PageController@savenewaddress');
         Route::get('editaddress/{id}', 'PageController@editaddress')->name('editaddress');
-         Route::get('setdefault/{id}', 'PageController@setdefault')->name('setdefault');
+        Route::get('setdefault/{id}', 'PageController@setdefault')->name('setdefault');
         Route::post('add-address/{id}', 'PageController@storeediteduseraddress')->name('updateaddress');
         Route::get('sales/order/history', 'PageController@user_order_history');
         Route::get('review/customer', 'PageController@review_customer');
@@ -114,8 +116,6 @@ Route::post('adminoperator/login', 'adminoperator\LoginController@login');
 Route::get('adminoperator/dashboard', 'adminoperatorcontroller@dashboard');
 Route::get('adminoperator/adduser', 'adminoperatorcontroller@index')->name('adduser');
 Route::post('adminoperator/adduser', 'adminoperatorcontroller@store');
-
-
 
 
 Route::get('pharmacy/dashboard', function(){
