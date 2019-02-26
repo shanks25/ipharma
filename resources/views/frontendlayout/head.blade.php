@@ -22,18 +22,9 @@
 
 <!-- CSS Style -->
 <link rel="stylesheet" href="{{ asset('newdesign/style.css') }}">
-
- <!-- Vendor CSS -->
-    <link rel="stylesheet" href="{{ Theme::asset('css/vendor/bootstrap/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ Theme::asset('css/vendor/bootstrap/css/style.scss') }}">
-    <!-- Full Slider CSS -->
-    <link rel="stylesheet" href="{{ Theme::asset('css/full-slider.css') }}">
-    <link rel="stylesheet" href="{{ Theme::asset('css/vendor/font-awesome/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ Theme::asset('css/vendor/animate/animate.min.css') }}">
-    <link rel="stylesheet" href="{{ Theme::asset('css/vendor/simple-line-icons/css/simple-line-icons.min.css') }}">
-    <link rel="stylesheet" href="{{ Theme::asset('css/vendor/owl.carousel/assets/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ Theme::asset('css/vendor/owl.carousel/assets/owl.theme.default.min.css') }}">
-    <link rel="stylesheet" href="{{ Theme::asset('css/vendor/magnific-popup/magnific-popup.min.css') }}">
+     <!-- Vendor CSS -->
+    
+ 
 
     <!-- Theme CSS -->
  
@@ -70,7 +61,6 @@
         line-height: 30px;
     }
 </style>
-
 </head>
 
 <body class="cms-index-index cms-home-page">

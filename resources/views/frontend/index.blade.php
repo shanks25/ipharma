@@ -1,5 +1,7 @@
 @extends('frontendlayout.app')
 @section('content')
+@include('frontendlayout.cart')
+
 @include('frontendlayout.slider')
 
 

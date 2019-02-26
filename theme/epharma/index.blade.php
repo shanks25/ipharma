@@ -62,10 +62,10 @@
     <script src="{{ Theme::asset('css/vendor/modernizr/modernizr.min.js') }}"></script>
 
     <style>
-        .fa{
-            line-height: 30px;
-        }
-    </style>
+    .fa{
+        line-height: 30px;
+    }
+</style>
 
 </head>
 <body class="cart-box-body">
@@ -100,7 +100,7 @@
                 <div class="col-sm-5">
                     <img class="header-bag" src="{{Theme::asset('img/shopping-bag.png') }}"/><strong><span class="cart-count">{{Cart::count()}}</span> Item</strong>
                 </div>
-               <button class="btn btn-info pull-right cart-hide-btn">Hide</button>
+                <button class="btn btn-info pull-right cart-hide-btn">Hide</button>
                 <!--<button class="btn btn-dark pull-right" id="empty_cart_button">Clear Cart</button>-->
                 <div class="clearfix"></div>
             </div>
@@ -116,7 +116,7 @@
                                 <td class="product-image-td">
                                     <a href="{{ url('product/'.$row->id) }}" title="Product Name">
                                         @if($row->options->has('img'))
-                                      
+                                        
                                         @endif
                                         <!--<img src="{{ Theme::asset('img/products/cart-product1.jpg') }}" alt="Product Name">-->
                                     </a>
@@ -232,41 +232,41 @@
                                         </div>
                                     </div>
                                 </div>-->
-                <div class="header-container container">
-                    <div class="header-row">
-                        <div class="col-sm-2" style="border-right: 1px solid #fff; padding-left: 0;">
-                            <div class="header-logo">
-                                <a href="{{ url('/') }}">
-                                    <img alt="ipharma" src="{{ Theme::asset('img/n_logo1-1.gif') }}">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="row">
-                                <div class="header-search hidden-sm hidden-xs">
-                                    <p style="color: #fff; display: block; font-size: 18px; margin: 0; line-height: 50px; padding-left: 20px;">Your Online Healthcare Solution</p>
-                                </div>
-
-                                <a href="#" class="mmenu-toggle-btn" title="Toggle menu">
-                                    <i class="fa fa-bars"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-sm-5 hidden-sm hidden-xs">
-                            <div class="row">
-                                <div class="cart-area" style="margin-top: 0;">
-                                    <div class="custom-block" style="line-height: 25px;">
-                                        <div class="row">
-                                            <i class="fa fa-phone" style="line-height: 25px;"></i>
-                                            <span> +880 1817-2990742</span>
-                                            <span class="split"></span>
-                                            <a class="pull-right" style="text-align: right; cursor: default; white-space: nowrap; text-decoration: none;">Order by 1pm Same day Delivery</a>
-                                            <br>
-                                            <i class="fa fa-phone" style="line-height: 25px;"></i>
-                                            <span> +880 1817-2990742</span>
-                                            <span class="split"></span>
-                                            <a class="pull-right" style="text-align: right; cursor: default; white-space: nowrap; text-decoration: none;">After 1pm Next Day Delivery&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                <div class="header-container container">
+                                    <div class="header-row">
+                                        <div class="col-sm-2" style="border-right: 1px solid #fff; padding-left: 0;">
+                                            <div class="header-logo">
+                                                <a href="{{ url('/') }}">
+                                                    <img alt="ipharma" src="{{ Theme::asset('img/n_logo1-1.gif') }}">
+                                                </a>
+                                            </div>
                                         </div>
+                                        <div class="col-md-4">
+                                            <div class="row">
+                                                <div class="header-search hidden-sm hidden-xs">
+                                                    <p style="color: #fff; display: block; font-size: 18px; margin: 0; line-height: 50px; padding-left: 20px;">Your Online Healthcare Solution</p>
+                                                </div>
+
+                                                <a href="#" class="mmenu-toggle-btn" title="Toggle menu">
+                                                    <i class="fa fa-bars"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5 hidden-sm hidden-xs">
+                                            <div class="row">
+                                                <div class="cart-area" style="margin-top: 0;">
+                                                    <div class="custom-block" style="line-height: 25px;">
+                                                        <div class="row">
+                                                            <i class="fa fa-phone" style="line-height: 25px;"></i>
+                                                            <span> +880 1817-2990742</span>
+                                                            <span class="split"></span>
+                                                            <a class="pull-right" style="text-align: right; cursor: default; white-space: nowrap; text-decoration: none;">Order by 1pm Same day Delivery</a>
+                                                            <br>
+                                                            <i class="fa fa-phone" style="line-height: 25px;"></i>
+                                                            <span> +880 1817-2990742</span>
+                                                            <span class="split"></span>
+                                                            <a class="pull-right" style="text-align: right; cursor: default; white-space: nowrap; text-decoration: none;">After 1pm Next Day Delivery&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                                        </div>
 <!--                                        <div class="row">
                                             <i class="fa fa-phone"></i>
                                             <span> 019 3333 66 55</span>
@@ -339,328 +339,328 @@
                                     @if(Auth::check())
                                     <li class="pull-right ">
                                         <a href="{{ route('logout') }}" 
-                                           onclick="event.preventDefault();
-    document.getElementById('logout-form').submit();"><i class="fa fa-expand"></i>
-                                            Logout
-                                        </a>
-                                        <form id="logout-form" 
-                                              action="{{ route('logout') }}" 
-                                              method="POST" 
-                                              style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form></li>
-                                    <li class="pull-right ">
-                                        <a href="{{ url('customer/account/index') }}"><i class="fa fa-user-circle"></i> My Account </a>
-                                    </li>
+                                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();"><i class="fa fa-expand"></i>
+                                        Logout
+                                    </a>
+                                    <form id="logout-form" 
+                                    action="{{ route('logout') }}" 
+                                    method="POST" 
+                                    style="display: none;">
+                                    {{ csrf_field() }}
+                                </form></li>
+                                <li class="pull-right ">
+                                    <a href="{{ url('customer/account/index') }}"><i class="fa fa-user-circle"></i> My Account </a>
+                                </li>
 
-                                    @else
-                                           <li class="pull-right ">
-                                        <a href="{{ url('registration') }}">
-                                            <i class="fa fa-user-circle"></i>
-                                            Register
-                                        </a>
-                                    </li>
-                                    <li class="pull-right ">
-                                        <a href="{{ url('user-login') }}">
-                                            <i class="fa fa-user-circle"></i>
-                                            Login
-                                        </a>
-                                    </li>
-                                    @endif
-                                    <li class="pull-right ">
-                                        <a href="{{ url('refill-request') }}">
-                                            <i class="fa fa-pencil-square-o"></i>
-                                            Refill Request
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+                                @else
+                                <li class="pull-right ">
+                                    <a href="{{ url('registration') }}">
+                                        <i class="fa fa-user-circle"></i>
+                                        Register
+                                    </a>
+                                </li>
+                                <li class="pull-right ">
+                                    <a href="{{ url('user-login') }}">
+                                        <i class="fa fa-user-circle"></i>
+                                        Login
+                                    </a>
+                                </li>
+                                @endif
+                                <li class="pull-right ">
+                                    <a href="{{ url('refill-request') }}">
+                                        <i class="fa fa-pencil-square-o"></i>
+                                        Refill Request
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
-            </div>
-        </header>
-
-        <div class="mobile-nav">
-            <div class="mobile-nav-wrapper">
-                <ul class="mobile-side-menu">
-                    <!--<li><a href="{{ url('/') }}">Home</a></li>-->
-                    @if(option('menu'))
-                    @foreach(option('menu') as $menu)
-                    <li>
-                        @if(isset($menu->children))
-                        <span class="mmenu-toggle"></span>
-                        @endif
-                        <a href="{{ $menu->customSelect }}"><i style="line-height: 0; margin-right: 3px; margin-top: -1px;" class="{{ $menu->icon }}"></i>{{ $menu->title }}</a>
-                        @if(isset($menu->children))
-                        <ul>
-                            @foreach( $menu->children as $menu)
-                            <li><a href="{{ $menu->customSelect }}">{{ $menu->title }}</a></li>
-                            @endforeach
-                        </ul>
-                        @endif
-                    </li>
-                    @endforeach
-                    @endif
-                    <li>
-                        <a href="{{ url('product-inquiry') }}">
-                            <i style="line-height: 0; margin-right: 3px; margin-top: -1px;" class="fa fa-clipboard-list"></i>
-                            Request Product
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ url('prescription-upload') }}">
-                            Upload Prescription
-                        </a>
-                    </li>
-                </ul>
             </div>
         </div>
+    </header>
 
-        <div id="mobile-menu-overlay"></div>
-        @inject('option', 'Epharma\Model\Option')
-        @inject('media', 'Epharma\Model\Media')
-        <style>
-        .search-box{
-            width: 100%;
-            position: relative;
-            display: inline-block;
-            font-size: 14px;
-        }
-        .result {
-            position: absolute;
-            z-index: 999;
-            top: 75%;
-            left: 35px;
-            background: #FFF;
-        }
-        .search-box input[type="text"], .result{
-            width: 100%;
-            box-sizing: border-box;
-        }
-        .result{
-            width: 69%;
-            box-sizing: border-box;
-        }
-        .result table {
-            width: 100%;
-        }
-        /* Formatting result items */
-        .result table tr{
-            margin: 0;
-            padding: 7px 10px;
-            border: 1px solid #CCCCCC;
-            border-top: none;
-            cursor: pointer;
-        }
-        .result table tr td:first-child{
-            width: 10%;
-            padding: 10px 0;
-        }
-        .result table tr td:nth-child(2){
-            width: 75%;
-        }
-        .result table tr td:nth-child(2):hover{
-            background: #f2f2f2;
-        }
-        </style>
-        <div role="main" class="main">
+    <div class="mobile-nav">
+        <div class="mobile-nav-wrapper">
+            <ul class="mobile-side-menu">
+                <!--<li><a href="{{ url('/') }}">Home</a></li>-->
+                @if(option('menu'))
+                @foreach(option('menu') as $menu)
+                <li>
+                    @if(isset($menu->children))
+                    <span class="mmenu-toggle"></span>
+                    @endif
+                    <a href="{{ $menu->customSelect }}"><i style="line-height: 0; margin-right: 3px; margin-top: -1px;" class="{{ $menu->icon }}"></i>{{ $menu->title }}</a>
+                    @if(isset($menu->children))
+                    <ul>
+                        @foreach( $menu->children as $menu)
+                        <li><a href="{{ $menu->customSelect }}">{{ $menu->title }}</a></li>
+                        @endforeach
+                    </ul>
+                    @endif
+                </li>
+                @endforeach
+                @endif
+                <li>
+                    <a href="{{ url('product-inquiry') }}">
+                        <i style="line-height: 0; margin-right: 3px; margin-top: -1px;" class="fa fa-clipboard-list"></i>
+                        Request Product
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('prescription-upload') }}">
+                        Upload Prescription
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 
-            <header id="myCarousel" class="carousel slide">
-                <!-- Wrapper for Slides -->
-                <div class="carousel-buttons">
-                    <div class="search">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-10 col-md-offset-1">
-                                    <div class="form-section">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group search-box">
-                                                    <div class="serchtile"></div>
-                                                    <input type="text" autocomplete="off" id="example-ajax-post" placeholder="Search here..." class="form-control"/>
-                                                    <input type="hidden" id="example-ajax-token" value="{{csrf_token()}}"/>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <div class="serchtile"></div>
-                                                    <select id="productCategory" name="categoryId" class="form-control">
-                                                        <option value="1">Brand Name</option>
-                                                        <option value="2">Generic Name</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <a href="{{ url('prescription-upload') }}">
-                                                    <button class="btn pull-right" style="background-color: #00334d; color: #FFF; width: 100%; margin-top: 17px; line-height: 23px;">Upload Prescription</button>
-                                                </a>
-                                            </div>
+    <div id="mobile-menu-overlay"></div>
+    @inject('option', 'Epharma\Model\Option')
+    @inject('media', 'Epharma\Model\Media')
+    <style>
+    .search-box{
+        width: 100%;
+        position: relative;
+        display: inline-block;
+        font-size: 14px;
+    }
+    .result {
+        position: absolute;
+        z-index: 999;
+        top: 75%;
+        left: 35px;
+        background: #FFF;
+    }
+    .search-box input[type="text"], .result{
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .result{
+        width: 69%;
+        box-sizing: border-box;
+    }
+    .result table {
+        width: 100%;
+    }
+    /* Formatting result items */
+    .result table tr{
+        margin: 0;
+        padding: 7px 10px;
+        border: 1px solid #CCCCCC;
+        border-top: none;
+        cursor: pointer;
+    }
+    .result table tr td:first-child{
+        width: 10%;
+        padding: 10px 0;
+    }
+    .result table tr td:nth-child(2){
+        width: 75%;
+    }
+    .result table tr td:nth-child(2):hover{
+        background: #f2f2f2;
+    }
+</style>
+<div role="main" class="main">
+
+    <header id="myCarousel" class="carousel slide">
+        <!-- Wrapper for Slides -->
+        <div class="carousel-buttons">
+            <div class="search">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="form-section">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group search-box">
+                                            <div class="serchtile"></div>
+                                            <input type="text" autocomplete="off" id="example-ajax-post" placeholder="Search here..." class="form-control"/>
+                                            <input type="hidden" id="example-ajax-token" value="{{csrf_token()}}"/>
                                         </div>
                                     </div>
-                                    <div id="search-results" class="result"></div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <div class="serchtile"></div>
+                                            <select id="productCategory" name="categoryId" class="form-control">
+                                                <option value="1">Brand Name</option>
+                                                <option value="2">Generic Name</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="{{ url('prescription-upload') }}">
+                                            <button class="btn pull-right" style="background-color: #00334d; color: #FFF; width: 100%; margin-top: 17px; line-height: 23px;">Upload Prescription</button>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="carousel-inner">
-                    <?php
-                    $active='';
-                    ?>
-                    @if($sliderImageIds = option('slider-images'))
-                    @foreach($media->findMany($sliderImageIds) as $k => $sliderImage)
-                    @php
-                    $active = ($k == 0) ? "active" : "";
-                    @endphp
-                        <div class="item {{$active}}">
-                            <div class="fill" style="background-image: url('{{ Theme::publicImg($sliderImage->src) }}'); background-size: 100% 100%;"></div>
-                        </div>
-                    @endforeach
-                    @endif
-                </div>
-
-                <!-- Controls -->
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
-
-            </header>
-
-
-
-            <div class="banners-wrapper">
-                <div class="banners-container">
-                    <div class="container">
-                        <div class="row">
-
-                            <div class="col-sm-3 col-xs-12">
-                                <a href="#" class="banner">
-                                    <img src="{{ Theme::asset('img/banners/shop4/banner1.jpg') }}" alt="Banner">
-                                </a>
-                            </div>
-                            <div class="col-sm-3 col-xs-12 col-sm-push-6">
-                                <a href="#" class="banner">
-                                    <img src="{{ Theme::asset('img/banners/shop4/banner7.jpg') }}" alt="Banner">
-                                </a>
-                            </div>
-
-                            <div class="clearfix visible-xs"></div>
-
-                            <div class="col-sm-6 col-sm-pull-3">
-                                <a href="#" class="banner">
-                                    <img src="{{ Theme::asset('img/banners/shop4/banner4.jpg') }}" alt="Banner">
-                                </a>
-                            </div>
-
+                            <div id="search-results" class="result"></div>
                         </div>
                     </div>
                 </div>
             </div>
 
+        </div>
 
-            @if($featured_products->count())
-            <div class="container mb-lg">
-                <h2 class="slider-title">
-                    <span class="inline-title">Feature Product</span>
-                    <span class="line"></span>
-                </h2>
+        <div class="carousel-inner">
+            <?php
+            $active='';
+            ?>
+            @if($sliderImageIds = option('slider-images'))
+            @foreach($media->findMany($sliderImageIds) as $k => $sliderImage)
+            @php
+            $active = ($k == 0) ? "active" : "";
+            @endphp
+            <div class="item {{$active}}">
+                <div class="fill" style="background-image: url('{{ Theme::publicImg($sliderImage->src) }}'); background-size: 100% 100%;"></div>
+            </div>
+            @endforeach
+            @endif
+        </div>
 
-                <div class="owl-carousel owl-theme manual new-products-carousel">
-                    @foreach($featured_products as $product)
-                    <?php
-                    if ($product->brandattrOptions != NULL) {
-                        $brandDiscount = $product->brandattrOptions->attributeValue->discount_percentage;
-                    } else {
-                        $brandDiscount = 0;
-                    }
-                    ?>
-                    <div class="product">
-                        <figure class="product-image-area">
-                            <a href="{{ url('product/'.$product->id) }}" title="Product Name" class="product-image">
-                                @if($product->media->isNotEmpty())
-                                @foreach($product->media->take(2) as $i=>$media)
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
 
-                                @if($i == 0)
-                                <img src="{{ Theme::publicImg('tb_' . $media->src) }}" alt="Product Name">
-                                @else
-                                <img class="img-hided" src="{{ Theme::publicImg('tb_' . $media->src) }}" alt="" width="200" height="200">
-                                @endif
+    </header>
 
-                                @endforeach
-                                @endif
-                            </a>
-                            @if($product->discount_percentage || $product->discount_amount || $product->terms[0]->discount_percentage || $brandDiscount)
-                            <div class="product-label">
-                                <span class="new"><?php echo disPercentage($product->price, $product->discount_percentage, $product->discount_amount, $product->terms[0]->discount_percentage, $brandDiscount); ?>%</span>
-                            </div>
-                            @endif
-                        </figure>
-                        <div class="product-details-area">
-                            <h2 class="product-name">
-                                <a href="{{ url('product/'.$product->id) }}" title="Product Name" class="name-item">{{$product->name}}</a>
-                            </h2>
+
+
+    <div class="banners-wrapper">
+        <div class="banners-container">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-sm-3 col-xs-12">
+                        <a href="#" class="banner">
+                            <img src="{{ Theme::asset('img/banners/shop4/banner1.jpg') }}" alt="Banner">
+                        </a>
+                    </div>
+                    <div class="col-sm-3 col-xs-12 col-sm-push-6">
+                        <a href="#" class="banner">
+                            <img src="{{ Theme::asset('img/banners/shop4/banner7.jpg') }}" alt="Banner">
+                        </a>
+                    </div>
+
+                    <div class="clearfix visible-xs"></div>
+
+                    <div class="col-sm-6 col-sm-pull-3">
+                        <a href="#" class="banner">
+                            <img src="{{ Theme::asset('img/banners/shop4/banner4.jpg') }}" alt="Banner">
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @if($featured_products->count())
+    <div class="container mb-lg">
+        <h2 class="slider-title">
+            <span class="inline-title">Feature Product</span>
+            <span class="line"></span>
+        </h2>
+
+        <div class="owl-carousel owl-theme manual new-products-carousel">
+            @foreach($featured_products as $product)
+            <?php
+            if ($product->brandattrOptions != NULL) {
+                $brandDiscount = $product->brandattrOptions->attributeValue->discount_percentage;
+            } else {
+                $brandDiscount = 0;
+            }
+            ?>
+            <div class="product">
+                <figure class="product-image-area">
+                    <a href="{{ url('product/'.$product->id) }}" title="Product Name" class="product-image">
+                        @if($product->media->isNotEmpty())
+                        @foreach($product->media->take(2) as $i=>$media)
+
+                        @if($i == 0)
+                        <img src="{{ Theme::publicImg('tb_' . $media->src) }}" alt="Product Name">
+                        @else
+                        <img class="img-hided" src="{{ Theme::publicImg('tb_' . $media->src) }}" alt="" width="200" height="200">
+                        @endif
+
+                        @endforeach
+                        @endif
+                    </a>
+                    @if($product->discount_percentage || $product->discount_amount || $product->terms[0]->discount_percentage || $brandDiscount)
+                    <div class="product-label">
+                        <span class="new"><?php echo disPercentage($product->price, $product->discount_percentage, $product->discount_amount, $product->terms[0]->discount_percentage, $brandDiscount); ?>%</span>
+                    </div>
+                    @endif
+                </figure>
+                <div class="product-details-area">
+                    <h2 class="product-name">
+                        <a href="{{ url('product/'.$product->id) }}" title="Product Name" class="name-item">{{$product->name}}</a>
+                    </h2>
                             <!--                                <div class="product-ratings">
                                                                 <div class="ratings-box">
                                                                     <div class="rating" style="width:0%"></div>
                                                                 </div>
                                                             </div>-->
-                            <div class="product-price-box">
-                                @if($product->discount_percentage != 0)
-                                <span class="old-price">৳{{$product->price}}</span>
-                                @elseif($product->discount_amount != 0)
-                                <span class="old-price">৳{{$product->price}}</span>
-                                @elseif($product->terms[0]->discount_percentage != 0)
-                                <span class="old-price">৳{{$product->price}}</span>
-                                @elseif($brandDiscount != 0)
-                                <span class="old-price">৳{{$product->price}}</span>
-                                @endif
-                                <span class="product-price">৳<?php echo cat_product_price($product->price, $product->discount_percentage, $product->discount_amount, $product->terms[0]->discount_percentage, $brandDiscount); ?></span>
-                            </div>
+                                                            <div class="product-price-box">
+                                                                @if($product->discount_percentage != 0)
+                                                                <span class="old-price">৳{{$product->price}}</span>
+                                                                @elseif($product->discount_amount != 0)
+                                                                <span class="old-price">৳{{$product->price}}</span>
+                                                                @elseif($product->terms[0]->discount_percentage != 0)
+                                                                <span class="old-price">৳{{$product->price}}</span>
+                                                                @elseif($brandDiscount != 0)
+                                                                <span class="old-price">৳{{$product->price}}</span>
+                                                                @endif
+                                                                <span class="product-price">৳<?php echo cat_product_price($product->price, $product->discount_percentage, $product->discount_amount, $product->terms[0]->discount_percentage, $brandDiscount); ?></span>
+                                                            </div>
 
-                            <div class="product-actions">
+                                                            <div class="product-actions">
                                 <!--                                    <a href="#" class="addtowishlist" title="Add to Wishlist">
                                                                         <i class="fa fa-heart"></i>
                                                                     </a>-->
-                                <a href="#" class="addtocart feature-btn-cart" title="Add to Bag" price="<?php echo cat_product_price($product->price, $product->discount_percentage, $product->discount_amount, $product->terms[0]->discount_percentage, $brandDiscount); ?>" fet_id="{{ $product->id }}" fet_token="{{ csrf_token() }}" fet_qty="{{ $product->min_quantity }}">
-                                    <i class="fa fa-shopping-cart"></i>
-                                    <span>Add to Bag</span>
-                                </a>
+                                                                    <a href="#" class="addtocart feature-btn-cart" title="Add to Bag" price="<?php echo cat_product_price($product->price, $product->discount_percentage, $product->discount_amount, $product->terms[0]->discount_percentage, $brandDiscount); ?>" fet_id="{{ $product->id }}" fet_token="{{ csrf_token() }}" fet_qty="{{ $product->min_quantity }}">
+                                                                        <i class="fa fa-shopping-cart"></i>
+                                                                        <span>Add to Bag</span>
+                                                                    </a>
                                 <!--                                    <a href="#" class="comparelink" title="Add to Compare">
                                                                         <i class="glyphicon glyphicon-signal"></i>
                                                                     </a>-->
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        @endforeach
+                                                    </div>
 
-            </div>
-            @endif
+                                                </div>
+                                                @endif
 
-            @each('Theme::index-collections', $collections, 'collection')
-        </div>
+                                                @each('Theme::index-collections', $collections, 'collection')
+                                            </div>
 
-        @include('Theme::footer')
-        <script>
-            $('.carousel').carousel({
+                                            @include('Theme::footer')
+                                            <script>
+                                                $('.carousel').carousel({
                 interval: 5000 //changes the speed
             })
         </script>
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/5bea7e0d70ff5a5a3a71e792/default';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
+        <!--Start of Tawk.to Script-->
+        <script type="text/javascript">
+            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+            (function(){
+                var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                s1.async=true;
+                s1.src='https://embed.tawk.to/5bea7e0d70ff5a5a3a71e792/default';
+                s1.charset='UTF-8';
+                s1.setAttribute('crossorigin','*');
+                s0.parentNode.insertBefore(s1,s0);
+            })();
+        </script>
+        <!--End of Tawk.to Script-->
 
-</body>
-</html>
+    </body>
+    </html>
