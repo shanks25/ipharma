@@ -1,0 +1,3 @@
+DB_DATABASE=limitle1_epharma
+DB_USERNAME=limitle1_epharma
+DB_PASSWORD=p!78#NX7CN2d

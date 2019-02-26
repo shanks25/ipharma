@@ -1,0 +1,218 @@
+@include('Theme::header')
+@inject('option', 'Epharma\Model\Option')
+@inject('media', 'Epharma\Model\Media')
+
+<div role="main" class="main">
+
+    <div class="container-fluid">
+        <div class="home-slider-area">
+            <div class="row">
+                <div class="col-md-6 col-md-push-3">
+                    <div class="owl-carousel owl-theme home-banner-slider" data-plugin-options="{'items':1, 'loop': false, 'margin': 5}">
+                        <div>
+                            <img class="img-responsive" src="{{ Theme::asset('img/slides/shop4/slide1.jpg') }}" alt="Slide">
+                        </div>
+                        <div>
+                            <img class="img-responsive" src="{{ Theme::asset('img/slides/shop4/slide2.jpg') }}" alt="Slide">
+                        </div>
+                        <div>
+                            <img class="img-responsive" src="{{ Theme::asset('img/slides/shop4/slide3.jpg') }}" alt="Slide">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-md-push-3">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-12">
+                            <div class="tabs"><ul class="nav nav-tabs "><li class="active"><a href="#tab-90b1864e-4ae4-9" id="tab-90b1864e-4ae4-9-title" data-toggle="tab"><i class="fa fa-check-circle"></i>Why You Choose Us?</a></li></ul><div class="tab-content"><div id="tab-90b1864e-4ae4-9" class="tab-pane active">
+                                        <div class="wpb_text_column wpb_content_element ">
+                                            <div class="wpb_wrapper">
+                                                <p><img class="alignnone size-full wp-image-14185" src="http://epharma.com.bd/wp-content/uploads/2016/02/favicon-16x16.png" alt="favicon-16x16" width="16" height="16">Bangladesh based Online Pharmacy</p>
+                                                <p><img class="alignnone size-full wp-image-14185" src="http://epharma.com.bd/wp-content/uploads/2016/02/favicon-16x16.png" alt="favicon-16x16" width="16" height="16">5% Off&nbsp;on Medicines</p>
+                                                <p><img class="alignnone size-full wp-image-14185" src="http://epharma.com.bd/wp-content/uploads/2016/02/favicon-16x16.png" alt="favicon-16x16" width="16" height="16"><span class="font-sm">Confidential delivery ensure privacy</span></p>
+                                                <p><img class="alignnone size-full wp-image-14185" src="http://epharma.com.bd/wp-content/uploads/2016/02/favicon-16x16.png" alt="favicon-16x16" width="16" height="16">100% Trusted&nbsp;Delivery Channel</p>
+                                                <p><img class="alignnone size-full wp-image-14185" src="http://epharma.com.bd/wp-content/uploads/2016/02/favicon-16x16.png" alt="favicon-16x16" width="16" height="16">FREE DELIVERY&nbsp;On Orders Tk. 899+</p>
+
+                                            </div>
+                                        </div>
+                                    </div></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-md-pull-9">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-12">
+                            <div class="tabs">
+                                <ul class="nav nav-tabs ">
+                                    <li class="active">
+                                        <a href="#tab-ce6012a0-6c70-6" id="tab-ce6012a0-6c70-6-title" data-toggle="tab">
+                                            <i class="fa fa-bullhorn"></i>Offers
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div id="tab-ce6012a0-6c70-6" class="tab-pane active">
+                                        <div class="wpb_images_carousel wpb_content_element vc_clearfix">
+                                            <div class="wpb_wrapper">
+                                                <div id="vc_images-carousel-1-1505979825" data-ride="vc_carousel" data-wrap="true" style="width: 255px;" data-interval="5500" data-auto-height="yes" data-mode="vertical" data-partial="false" data-per-view="1" data-hide-on-end="false" class="vc_slide vc_images_carousel vc_carousel_vertical vc_build">
+                                                    <!-- Wrapper for slides -->
+                                                    <div class="vc_carousel-inner">
+                                                        <div class="vc_carousel-slideline" style="height: 175px;">
+                                                            <div class="vc_carousel-slideline-inner" style="top: 0px;">
+                                                                <div class="vc_item vc_active" style="height: 175px;">
+                                                                    <div class="vc_inner">
+                                                                        <a href="http://epharma.com.bd/product_inquiry/" target="_self">
+                                                                            <img class="" src="http://epharma.com.bd/wp-content/uploads/2015/01/drug_lisence.jpg" alt="drug_lisence" title="drug_lisence" width="255" height="175">										</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="banners-wrapper">
+        <div class="container">
+            <div class="homepage-bar">
+                <div class="row">
+                    <div class="col-md-4">
+                        <i class="fa fa-truck bar-icon" style="color: #007acc"></i>
+                        <div class="bar-textarea">
+                            <h3>ক্যাশ অন ডেলিভারী @ ঢাকা</h3>
+                            <p>৭৯৯ টাকার নীচে, ফি: পরের দিন ৪৯/- ও জরুরি ৯৯/-</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="fa fa-clipboard bar-icon" style="color: #ef7f00"></i>
+                        <div class="bar-textarea">
+                            <h3>
+                                প্রেসক্রিপশন আপলোড করুন
+                            </h3>
+                            <p>
+                                নির্ভাবনায় থাকুন, ঔষধ পৌছে যাবে আপনার দোরগোড়ায়
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="fa fa-envelope-o bar-icon" style="color: #007acc"></i>
+                        <div class="bar-textarea">
+                            <h3>SMS অথবা ইমেইল করুন</h3>
+                            <p>
+                                হটলাইন
+                                <strong> ০১৮৮২২২৮২২২</strong>
+                                /
+                                <a href="mailto:info@epharma.com.bd">info@Ipharma24.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="banners-container">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-sm-3 col-xs-12">
+                        <a href="#" class="banner">
+                            <img src="{{ Theme::asset('img/banners/shop4/banner1.jpg') }}" alt="Banner">
+                        </a>
+                    </div>
+                    <div class="col-sm-3 col-xs-12 col-sm-push-6">
+                        <a href="#" class="banner">
+                            <img src="{{ Theme::asset('img/banners/shop4/banner7.jpg') }}" alt="Banner">
+                        </a>
+                    </div>
+
+                    <div class="clearfix visible-xs"></div>
+
+                    <div class="col-sm-6 col-sm-pull-3">
+                        <a href="#" class="banner">
+                            <img src="{{ Theme::asset('img/banners/shop4/banner4.jpg') }}" alt="Banner">
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @if($featured_products->count())
+    <div class="container mb-lg">
+        <h2 class="slider-title">
+            <span class="inline-title">Feature Product</span>
+            <span class="line"></span>
+        </h2>
+
+        <div class="owl-carousel owl-theme manual new-products-carousel">
+            @foreach($featured_products as $product)
+            <div class="product">
+                <figure class="product-image-area">
+                    <a href="{{ url('product/'.$product->id) }}" title="Product Name" class="product-image">
+                        @if($product->media->isNotEmpty())
+                        @foreach($product->media->take(2) as $i=>$media)
+
+                        @if($i == 0)
+                        <img src="{{ Theme::publicImg('tb_' . $media->src) }}" alt="Product Name">
+                        @else
+                        <img class="img-hided" src="{{ Theme::publicImg('tb_' . $media->src) }}" alt="" width="297" height="448">
+                        @endif
+
+                        @endforeach
+                        @endif
+                    </a>
+                </figure>
+                <div class="product-details-area">
+                    <h2 class="product-name">
+                        <a href="{{ url('product/'.$product->id) }}" title="Product Name" class="name-item">{{$product->name}}</a>
+                    </h2>
+                    <!--                                <div class="product-ratings">
+                                                        <div class="ratings-box">
+                                                            <div class="rating" style="width:0%"></div>
+                                                        </div>
+                                                    </div>-->
+                    <div class="product-price-box">
+                        @if($product->discount)
+                        <span class="old-price">৳{{number_format($product->price)}}</span>
+                        @endif
+                        <span class="product-price">৳{{number_format($product->price - $product->discount)}}</span>
+                    </div>
+
+                    <div class="product-actions">
+                        <!--                                    <a href="#" class="addtowishlist" title="Add to Wishlist">
+                                                                <i class="fa fa-heart"></i>
+                                                            </a>-->
+                        <a href="#" class="addtocart feature-btn-cart" title="Add to Cart" fet_id="{{ $product->id }}" fet_token="{{ csrf_token() }}" fet_qty="1">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span>Add to Cart</span>
+                        </a>
+                        <!--                                    <a href="#" class="comparelink" title="Add to Compare">
+                                                                <i class="glyphicon glyphicon-signal"></i>
+                                                            </a>-->
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+
+    </div>
+    @endif
+
+    @each('Theme::index-collections', $collections, 'collection')
+</div>
+
+@include('Theme::footer')
+
+
+</body>
+</html>
