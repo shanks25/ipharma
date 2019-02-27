@@ -58,20 +58,20 @@ class PageController extends Controller {
         $data['featured_products'] = Product::with('media', 'terms', 'brandattrOptions.attributeValue')->findMany(option('featured-product'));
 //        return $data['featured_products'][0]->brandattrOptions->attributeValue->discount_percentage;
         $data['collections'] = Category::with('products', 'products.media', 'products.brandattrOptions.attributeValue')->findMany(option('collections'));
-            $data['count'] = 0;
-              $data;
+        $data['count'] = 0;
+        $data;
         // return Theme::view('index', $data);
         return view('frontend.index', $data);
     }
 
-        public function olddesign() {
+    public function olddesign() {
         $data['categories'] = Category::with('media')->findMany(option('popular-category'));
 //        $data['products'] = Product::with('media', 'categories')->take(10)->orderBy('products.id', 'DESC')->get();
         $data['featured_products'] = Product::with('media', 'terms', 'brandattrOptions.attributeValue')->findMany(option('featured-product'));
 //        return $data['featured_products'][0]->brandattrOptions->attributeValue->discount_percentage;
         $data['collections'] = Category::with('products', 'products.media', 'products.brandattrOptions.attributeValue')->findMany(option('collections'));
-      return Theme::view('index', $data);
-       
+        return Theme::view('index', $data);
+
     }
 
     public function mail_body($id) {
@@ -123,17 +123,7 @@ class PageController extends Controller {
             }
         )->whereNotIn('products.id', [$data['product']->id])
         ->take(5)->get();
-//        $data['generic'] = ProductAttr::with('products', 'products.typeAttrOptions.attributeValue', 'products.brandattrOptions.attributeValue')
-//                ->where('product_eav.option_id', $genericId)
-//                ->orderBy('product_eav.product_id', 'ASC')
-//                ->take(5)
-//                ->get();
-//        $data['generic_products'] = ProductAttr::select('product_id', 'products.name as pName', 'products.price', 'products.company_id', 'attribute_options.title as company_name')
-//                ->leftJoin('products', 'product_eav.product_id', '=', 'products.id')
-//                ->leftJoin('attribute_options', 'products.company_id', '=', 'attribute_options.id')
-//                ->where('attribute_id', $genericId)
-//                ->take(6)
-//                ->get();
+
 
         $categories = $data['product']->categories()->pluck('id');
 //        return $data['product']->id;
@@ -148,6 +138,66 @@ class PageController extends Controller {
         $data['featured_products'] = Product::with('media', 'terms', 'brandattrOptions.attributeValue')->findMany(option('featured-product'))->take(6);
 //        return $data;
         return Theme::view('product', $data);
+    }
+
+    public function newproductdesign($slug) {
+        $data['title'] = 'Product';
+        $data['attributes'] = ProductAttr::with('attribute', 'attributeValue')
+        ->where('product_id', $slug)->get();
+
+        $data['product'] = Product::with('media', 'typeAttrOptions.attributeValue', 'packAttrOptions.attributeValue', 'genericAttrOptions.attributeValue', 'terms', 'brandattrOptions.attributeValue')
+        ->where('products.is_available', 1)
+        ->where('products.delete_status', 0)
+        ->find($slug);
+        $rating_count = Reviews::where(array('product_id' => $slug, 'status' => 1));
+        $rating_avg = $rating_count->get();
+        $data['rating_count'] = $rating_count->count();
+        $avg = 0;
+        $totalAvg = 0;
+        foreach ($rating_avg as $key => $item) {
+            $avg += $item->rating;
+            $totalAvg += 5;
+        }
+        $data['ratingAvg'] = ($avg != 0) ? (( $avg / $totalAvg ) * 100) - 5 : 0;
+        $data['totalRating'] = ($avg != 0) ? (( $avg / $totalAvg ) * $totalAvg) / $data['rating_count'] : 0;
+        $review_data = Reviews::with('user')->where(array('product_id' => $slug, 'status' => 1))->get();
+        if ($review_data->count() > 0) {
+            foreach ($review_data as $key => $val) {
+                $reviews[$key]['id'] = $val->id;
+                $reviews[$key]['rating'] = (($val->rating / 5) * 100) - 1;
+                $reviews[$key]['comment'] = $val->comment;
+                $reviews[$key]['name'] = $val->user->name;
+                $reviews[$key]['date'] = date("F j, Y", strtotime($val->created_at));
+            }
+            $data['reviews'] = $reviews;
+        }
+//        return $reviews;
+        if ($data['product']->genericAttrOptions == '') {
+            $genericId = $data['product']->typeAttrOptions->attributeValue->id;
+        } else {
+            $genericId = $data['product']->genericAttrOptions->attributeValue->id;
+        }
+        $data['generic_products'] = Product::with('typeAttrOptions.attributeValue', 'brandattrOptions.attributeValue')->whereHas(
+            'attribute', function($query)use ($genericId) {
+                $query->where('option_id', $genericId);
+            }
+        )->whereNotIn('products.id', [$data['product']->id])
+        ->take(5)->get();
+
+
+        $categories = $data['product']->categories()->pluck('id');
+//        return $data['product']->id;
+        $data['related_product'] = Product::with('media', 'terms', 'brandattrOptions.attributeValue')->whereHas(
+            'categories', function($query)use ($categories) {
+                $query->whereIn('term_id', $categories);
+            }
+        )->whereNotIn('products.id', [$data['product']->id])
+        ->where('products.is_available', 1)
+        ->where('products.delete_status', 0)
+        ->take(10)->get();
+        $data['featured_products'] = Product::with('media', 'terms', 'brandattrOptions.attributeValue')->findMany(option('featured-product'))->take(6);
+//        return $data;
+        return view('frontend.singleproduct', $data);
     }
 
     public function search_products(Request $request) {
@@ -224,12 +274,7 @@ class PageController extends Controller {
         }
         $data['subCategory'] = Category::where('parent', $parCat)->orderBy('name', 'ASC')->get();
 
-//        $ss = DB::select(DB::raw("SELECT p.*,media.src, attribute_options.title, attribute_options.discount_percentage brand_dis FROM products p INNER JOIN product_term pt on pt.product_id=p.id "
-//                . "LEFT JOIN media ON media.mediable_id = p.id "
-//                . "LEFT JOIN product_eav ON product_eav.product_id = p.id "
-//                . "LEFT JOIN attribute_options ON attribute_options.id = product_eav.option_id "
-//                . "WHERE pt.term_id=$slug limit $offset, $limit"));
-//        return $ss;
+
         $data['catProduct'] = Product::with('terms', 'media', 'brandattrOptions.attributeValue', 'genericAttrOptions.attributeValue')
         ->whereHas('categories', function($query)use ($slug) {
             $query->where('term_id', $slug);
@@ -238,39 +283,33 @@ class PageController extends Controller {
         ->where('products.delete_status', 0)
         ->orderBy('products' . '.' . $short, 'ASC')
         ->paginate($limit);
-//        return $catProduct = Category::with('products', 'products.terms', 'products.media', 'products.brandattrOptions.attributeValue')
-//                ->where('terms.id', $slug)
-//                ->first();
-//        $items = $catProduct->products;
-//
-//        // Get current page form url e.x. &page=1
-//        $currentPage = LengthAwarePaginator::resolveCurrentPage();
-//
-//        // Create a new Laravel collection from the array data
-//        $itemCollection = collect($items);
-//
-//        // Define how many items we want to be visible in each page
-//        $perPage = 12;
-//
-//        // Slice the collection to get the items to display in current page
-//        $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
-//
-//        // Create our paginator and pass it to the view
-//        $paginatedItems = new LengthAwarePaginator($currentPageItems, count($itemCollection), $perPage);
-//
-//        // set url path for generted links
-//        $data['catProduct'] = $paginatedItems->setPath($request->url());
-//
-////        return $data['catProduct'] = Product::with('media', 'terms', 'brandattrOptions')->whereHas(
-////                        'categories', function($query)use ($slug) {
-////                    $query->whereIn('term_id', $slug);
-////                }
-////                )->take(2)->get();
-////        $data['catProduct'] = Product::with('media', 'terms', 'brandattrOptions')->take(2)->get();
-////        $data['catProduct'] = Category::with('products', 'products.brandattrOptions.attributeValue')->where('terms.id', $slug)->paginate($limit);
-////        return $data['catProduct'][0]->products[0]->brandattrOptions->attributeValue->discount_percentage;
-////                print_r($data['products']);die();
+
         return Theme::view('category', $data);
+    }
+
+    public function newcategory($slug, Request $request) {
+        $limit = $request->has('limit') ? $request->get('limit') : 12;
+        $short = $request->has('short-by') ? $request->get('short-by') : 'id';
+//        $offset = $request->has('offset') ? $request->get('offset') : 0;
+        $data['category'] = Category::find($slug);
+//        return $data['category'];
+        if ($data['category']->parent != 0) {
+            $parCat = $data['category']->parent;
+        } else {
+            $parCat = $data['category']->id;
+        }
+        $data['subCategory'] = Category::where('parent', $parCat)->orderBy('name', 'ASC')->get();
+
+        $data['catProduct'] = Product::with('terms', 'media', 'brandattrOptions.attributeValue', 'genericAttrOptions.attributeValue')
+        ->whereHas('categories', function($query)use ($slug) {
+            $query->where('term_id', $slug);
+        })
+        ->where('products.is_available', 1)
+        ->where('products.delete_status', 0)
+        ->orderBy('products' . '.' . $short, 'ASC')
+        ->paginate($limit);
+
+        return view('frontend.category', $data);
     }
 
     public function check_stock(Request $request) {
@@ -976,6 +1015,14 @@ public function fosterPayment($order, $billing) {
     public function user_login() {
         return Theme::view('user_login');
     }
+    public function newuser_login() {
+        return view('frontend.userlogin');
+    }
+
+
+    public function newregistration() {
+        return view('frontend.userregister');
+    }
 
     public function post_login(Request $request) {
         $this->validate($request, [
@@ -1035,6 +1082,8 @@ public function login() {
 public function registration() {
     return Theme::view('registration');
 }
+
+
 
 public function user_index() {
     $data['userInfo'] = Auth::user();
@@ -1228,6 +1277,18 @@ public function contact_us() {
     return Theme::view('contact_us');
 }
 
+public function newcontact_us() {
+ return view('frontend.contactus');
+}
+
+public function newnews() {
+ return view('frontend.news');
+}
+
+public function newabout_us() {
+ return view('frontend.aboutus');
+}
+
 public function customer_service() {
     return Theme::view('customer_service');
 }
@@ -1346,9 +1407,21 @@ public function how_to_order() {
     return Theme::view('how_to_order');
 }
 
+public function newhow_to_order() {
+   return view('frontend.howtoorder');
+}
+
 public function partners() {
     return Theme::view('partners');
 }
+public function newpartners() {
+      return view('frontend.partners');
+}
+
+public function newprivacy_policy() {
+      return view('frontend.policy');
+}
+
 
 public function news() {
     return Theme::view('news');

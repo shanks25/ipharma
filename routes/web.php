@@ -23,7 +23,9 @@
     Route::get('pdf', 'PageController@pdf') ;
     Route::get('export', 'PageController@export') ;
     Route::get('category/{slug}', 'PageController@category');
+    Route::get('test/category/{slug}', 'PageController@newcategory');
     Route::get('product/{slug}', 'PageController@product');
+        Route::get('test/product/{slug}', 'PageController@newproductdesign');
     Route::get('products', 'PageController@search_products');
     Route::post('add-reviews', 'PageController@add_reviews');
     Route::post('add-comment', 'PageController@add_comment');
@@ -47,11 +49,13 @@
     Route::post('store-prescription', 'PageController@store_prescription');
 
     Route::get('user-login', 'PageController@user_login')->name('user-login');
+        Route::get('test/user-login', 'PageController@newuser_login');
     Route::post('post-login', 'PageController@post_login');
     Route::get('login', 'PageController@login');
     Route::post('login', 'Auth\LoginController@login');
     Route::get('logout', 'Auth\LoginController@logout');
     Route::get('registration', 'PageController@registration');
+    Route::get('test/registration', 'PageController@newregistration');
     Route::post('registration', 'Auth\RegisterController@create');
     Route::get('check-pin', 'PageController@check_pin');
     Route::post('varify-pin', 'PageController@varify_pin');
@@ -89,14 +93,20 @@
     });
 
     Route::get('how-to-order', 'PageController@how_to_order');
+    Route::get('test/how-to-order', 'PageController@newhow_to_order');
     Route::get('partners', 'PageController@partners');
+        Route::get('test/partners', 'PageController@newpartners');
     Route::get('about-us', 'PageController@about_us');
+    Route::get('/test/about-us', 'PageController@newabout_us');
     Route::get('contact-us', 'PageController@contact_us');
+     Route::get('test/contact-us', 'PageController@newcontact_us');
     Route::get('customer-service', 'PageController@customer_service');
     Route::get('shipping-handling', 'PageController@shipping_handling');
     Route::get('returns-exchange', 'PageController@returns_exchange');
     Route::get('policy', 'PageController@privacy_policy');
+    Route::get('test/policy', 'PageController@newprivacy_policy');
     Route::get('news', 'PageController@news');
+       Route::get('test/news', 'PageController@newnews');
     Route::get('terms-conditions', 'PageController@terms_conditions');
     Route::post('call-me', 'PageController@call_me');
     Route::post('success', 'PageController@success');

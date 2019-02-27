@@ -71,7 +71,6 @@ use RegistersUsers;
                     'email' => $data['email'],
                     'mobile' => $data['mobile'],
                     'password' => bcrypt($data['password']),
-                    'pin_number' => $randPin,
                     'status' => 0,
 
         ]);

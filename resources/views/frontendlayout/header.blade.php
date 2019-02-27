@@ -37,7 +37,7 @@
       <div class="row">
         <div class="col-sm-3 col-md-3 col-xs-12"> 
           <!-- Header Logo -->
-          <div class="logo"><a title="e-commerce" href="index.html"><img alt="e-commerce" src="{{ asset('newdesign/images/Logo.png') }}"></a> </div>
+          <div class="logo"><a title="e-commerce" href="{{ url('/') }}"><img alt="e-commerce" src="{{ asset('newdesign/images/Logo.png') }}"></a> </div>
           <!-- End Header Logo --> 
         </div>
         <div class="col-xs-9 col-sm-6 col-md-6 col-lg-7"> 
@@ -45,21 +45,7 @@
 
           <div class="top-search">
             <div id="search">
-              <form>
-                <div class="input-group">
-                  <select class="cate-dropdown hidden-xs" name="category_id">
-                    <option>All Categories</option>
-                    <option>Personal Care</option>
-                    <option>&nbsp;&nbsp;&nbsp;Diabetic Care </option>
-                    <option>&nbsp;&nbsp;&nbsp;Health Condition</option>
-                    <option>&nbsp;&nbsp;&nbsp;Women Care</option>
-                    <option>&nbsp;&nbsp;&nbsp;Baby Care </option>
-                    <option>&nbsp;&nbsp;&nbsp;Sexual Wellness </option>
-                  </select>
-                  <input type="text" class="form-control" placeholder="Search" name="search">
-                  <button class="btn-search" type="button"><i class="fa fa-search"></i></button>
-                </div>
-              </form>
+                         @include('frontendlayout.ajax_search')
             </div>
           </div>
 

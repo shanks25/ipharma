@@ -22,45 +22,8 @@
 
 <!-- CSS Style -->
 <link rel="stylesheet" href="{{ asset('newdesign/style.css') }}">
-     <!-- Vendor CSS -->
-    
- 
+   @yield('head')
 
-    <!-- Theme CSS -->
- 
-    <link rel="stylesheet" href="{{ Theme::asset('css/theme-elements.css') }}">
-    <link rel="stylesheet" href="{{ Theme::asset('css/theme-blog.css') }}">
-    <link rel="stylesheet" href="{{ Theme::asset('css/theme-shop.css') }}">
-
-    <!-- Current Page CSS -->
-    <link rel="stylesheet" href="{{ Theme::asset('css/vendor/rs-plugin/css/settings.css') }}">
-    <link rel="stylesheet" href="{{ Theme::asset('css/vendor/rs-plugin/css/layers.css') }}">
-    <link rel="stylesheet" href="{{ Theme::asset('css/vendor/rs-plugin/css/navigation.css') }}">
-
-    <!-- Skin CSS -->
-    <link rel="stylesheet" href="{{ Theme::asset('css/skins/skin-shop-4.css') }}">
-
-    <!-- Demo CSS -->
-    <link rel="stylesheet" href="{{ Theme::asset('css/demos/demo-shop-4.css') }}">
-
-    <!-- Theme Custom CSS -->
-    <link rel="stylesheet" href="{{ Theme::asset('css/custom.css') }}">
-
-    <!-- Theme Sweet Alert CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.5.5/sweetalert2.min.css">
-
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> 
-
-
-
-    <!-- Head Libs -->
-    <script src="{{ Theme::asset('css/vendor/modernizr/modernizr.min.js') }}"></script>
-
-    <style>
-    .fa{
-        line-height: 30px;
-    }
-</style>
 </head>
 
 <body class="cms-index-index cms-home-page">
