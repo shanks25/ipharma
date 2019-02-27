@@ -337,7 +337,7 @@
                         </div>
                     </div>
                     @include('includes.messages')
-                    <input type="text" id="basicExample" name="timepicker">
+         
                     <div class="row">
                         <div class="col-md-6 col-xs-12">
                             <div class="featured-box featured-box-primary featured-box-flat featured-box-text-left mt-md">

@@ -107,38 +107,7 @@ class ProductController extends Controller {
             ProductAttr::insert($products_eav);
 
         }
-
-        //attach attribute
-//        if ($request->has('attribute')) {
-//            $data = [];
-//            foreach ($request->get('attribute') as $attribute) {
-//
-//                //for multiselect
-//                if (is_array($request->get('attr_' . $attribute))) {
-//
-//                    foreach ($request->get('attr_' . $attribute) as $option) {
-//                        $data[] = array(
-//                            'product_id' => $product->id,
-//                            'attribute_id' => $attribute,
-//                            'option_id' => $option,
-//                            'value' => null
-//                        );
-//                    }
-//                } else {
-//
-//                    $value = $request->has('attr_text_' . $attribute) ? $request->get('attr_text_' . $attribute) : null;
-//
-//                    $data[] = array(
-//                        'product_id' => $product->id,
-//                        'attribute_id' => $attribute,
-//                        'option_id' => $request->get('attr_' . $attribute),
-//                        'value' => $value
-//                    );
-//                }
-//            }
-//
-//            ProductAttr::insert($data);
-//        }
+ 
 
         return redirect()->back()->with('message','Product Added Successfully') ;
     }
@@ -159,7 +128,7 @@ class ProductController extends Controller {
         ->join('attributes', 'product_eav.attribute_id', '=', 'attributes.id')
         ->where('product_eav.product_id', $id)
         ->get();
-
+        $data['tags'] =tag::all();
         $data['attributes'] = [];
         $data['attribute_keys'] = [];
         foreach ($attributes as $attribute) {

@@ -9,7 +9,7 @@
 	<div class="product-view-area">
 		<div class="product-big-image col-xs-12 col-sm-5 col-lg-5 col-md-5">
 			<div class="icon-sale-label sale-left">Sale</div>
-			<div class="large-image"> <a href="images/first_aid.jpg" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img class="zoom-img" src="{{ asset('newdesign/images/first_aid.jpg') }}" alt="products"> </a> </div>
+			<div class="large-image"> <a href="images/first_aid.jpg" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img class="zoom-img" src="{{ asset($product->image) }}" alt="products"> </a> </div>
 			<div class="flexslider flexslider-thumb">
 			 
 			</div>
