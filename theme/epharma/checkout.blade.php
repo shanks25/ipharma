@@ -10,7 +10,7 @@
  <meta name="keywords" content="HTML5 Template" />
  <meta name="description" content="Porto - Responsive HTML5 Template">
  <meta name="author" content="okler.net">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.css" />
  <!-- Favicon -->
  <link rel="shortcut icon" href="{{ Theme::asset('img/favicon-32x32-1.png') }}" type="image/x-icon" />
  <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
@@ -57,7 +57,14 @@
  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> 
 
  <!-- Head Libs -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.js"></script>
  <script src="{{ Theme::asset('css/vendor/modernizr/modernizr.min.js') }}"></script>
+
+<script>
+    $(function(){
+    $('#basicExample').timepicker()});
+
+</script>
 
  <style>
  .fa{
@@ -203,191 +210,9 @@
         </div>
     </div>
     <div class="body">
-        <header id="header" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyStartAt': 75, 'stickySetTop': '-75px', 'stickyChangeLogo': true}">
-            <div class="header-body">
-                <!--                <div class="header-top">
-                                    <div class="container">
-                                        <div class="dropdowns-container">
-                                            <div class="header-dropdown cur-dropdown">
-                                                <a href="#"><i class="fa fa-facebook" style="color: white; font-size: 14px;"></i></a>
-                                            </div>
-
-                                            <div class="header-dropdown lang-dropdown">
-                                                <a href="#"><i class="fa fa-twitter" style="color: white; font-size: 14px;"></i></a>
-                                            </div>
-
-                                            <div class="compare-dropdown">
-                                                <a href="#"><i class="fa fa-youtube" style="color: white; font-size: 14px;"></i></a>
-                                            </div>
-                                        </div>
-
-                                        <div class="top-menu-area">
-                                            <a href="#">Links <i class="fa fa-caret-down"></i></a>
-                                            <ul class="top-menu">
-                                                <li><a href="{{ url('how-to-order') }}">How To Order</a></li>
-                                                <li><a href="{{ url('partners') }}">Partners</a></li>
-                                                <li><a href="{{ url('policy') }}">Policy</a></li>
-                                                <li><a href="{{ url('news') }}">News</a></li>
-                                                <li><a href="{{ url('about-us') }}">About Us</a></li>
-                                                <li><a href="{{ url('contact-us') }}">Contact Us</a></li>
-                                                <li><a href="{{ url('login') }}">My Account</a></li>
-                                                <li class="menu-item">
-                                                    <a href="{{ url('login') }}">
-                                                        <i class="fa fa-user" style="margin-right: 5px;"></i>Login
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="{{ url('login') }}">
-                                                        <i class="fa fa-user-plus" style="margin-right: 5px;"></i>Register
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>-->
-                                <div class="header-container container">
-                                    <div class="header-row">
-                                        <div class="col-sm-2" style="border-right: 1px solid #fff; padding-left: 0;">
-                                            <div class="header-logo">
-                                                <a href="{{ url('/') }}">
-                                                    <img alt="Epharma" src="{{ Theme::asset('img/n_logo1-1.gif') }}">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="row">
-                                                <div class="header-search">
-                                                    <p style="color: #fff; display: block; font-size: 18px; margin: 0; line-height: 50px; padding-left: 20px;">Your Online Healthcare Solution</p>
-                                                </div>
-
-                                                <a href="#" class="mmenu-toggle-btn" title="Toggle menu">
-                                                    <i class="fa fa-bars"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-5">
-                                            <div class="row">
-                                                <div class="cart-area">
-                                                    <div class="custom-block" style="line-height: 25px;">
-                                                        <div class="row">
-                                                            <i class="fa fa-phone" style="line-height: 25px;"></i>
-                                                            <span> 018 8 222 8 222</span>
-                                                            <span class="split"></span>
-                                                            <a class="pull-right" style="text-align: right; cursor: default; white-space: nowrap; text-decoration: none;">Order by 1pm Same day Delivery</a>
-                                                            <br>
-                                                            <i class="fa fa-phone" style="line-height: 25px;"></i>
-                                                            <span> 017 0 129 0 890</span>
-                                                            <span class="split"></span>
-                                                            <a class="pull-right" style="text-align: right; cursor: default; white-space: nowrap; text-decoration: none;">After 1pm Next Day Delivery&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-                                                        </div>
-                                        <!--                                        <div class="row">
-                                                                                    <i class="fa fa-phone"></i>
-                                                                                    <span> 019 3333 66 55</span>
-                                                                                    <span class="split"></span>
-                                                                                    <a class="pull-right" style="text-align: right; cursor: default; white-space: nowrap; text-decoration: none;">After 1pm Next Day Delivery</a>
-                                                                                </div>-->
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="header-container header-nav">
-                                                            <div class="container">
-                                                                <div class="header-nav-main">
-                                                                    <nav>
-                                                                        <ul class="nav nav-pills" id="mainNav">
-                                                                            @if(option('menu'))
-                                                                            @foreach(option('menu') as $menu)
-                                                                            <li style="margin-top: 2px;" class="dropdown dropdown-mega-small">
-                                                                                <a href="{{ $menu->customSelect }}" <?php echo (! empty( $menu->children )) ? 'class="dropdown-toggle"' : 'class="dcss"';  ?>>
-                                                                                    <i style="line-height: 0; margin-right: 3px; margin-top: -1px;" class="{{ $menu->icon }}"></i>{{ $menu->title }}
-                                                                                </a>
-                                                                                @if(isset($menu->children))
-                                                                                <ul class="dropdown-menu">
-                                                                                    <li>
-                                                                                        <div class="dropdown-mega-content dropdown-mega-content-small">
-                                                                                            <div class="row">
-                                                                                                <div class="col-md-7">
-                                                                                                    <div class="row">
-                                                                                                        @if(isset($menu->children))
-                                                                                                        <ul class="dropdown-mega-sub-nav">
-                                                                                                            @foreach( $menu->children as $menu)
-                                                                                                            <div class="col-md-6">
-                                                                                                                <li><a href="{{ $menu->customSelect }}">{{$menu->title}}</a></li>
-                                                                                                            </div>
-                                                                                                            @endforeach
-                                                                                                        </ul>
-                                                                                                        @endif
-                                                                                                    </div>
-                                                                                                </div>
-
-                                                                                                <div class="col-md-5 mega -banner-bg">
-                                                                                                    <img src="{{ Theme::asset('img/menu-bg.png') }}" alt="Banner bg">
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </li>
-                                                                                </ul>
-                                                                                @endif
-                                                                                <div class="clearfix"></div>
-                                                                            </li>
-                                                                            @endforeach
-                                                                            @endif
-
-                                                                            <li>
-                                                                                <a href="{{ url('product-inquiry') }}">
-                                                                                    <i class="fa fa-pencil-square-o"></i>
-                                                                                    Request Product
-                                                                                </a>
-                                                                            </li>
-                                                                            @if(Auth::check())
-                                                                            <li class="pull-right ">
-                                                                                <a href="{{ route('logout') }}" 
-                                                                                onclick="event.preventDefault();
-                                                                                document.getElementById('logout-form').submit();"><i class="fa fa-expand"></i>
-                                                                                Logout
-                                                                            </a>
-                                                                            <form id="logout-form" 
-                                                                            action="{{ route('logout') }}" 
-                                                                            method="POST" 
-                                                                            style="display: none;">
-                                                                            {{ csrf_field() }}
-                                                                        </form></li>
-                                                                        <li class="pull-right ">
-                                                                            <a href="{{ url('customer/account/index') }}"><i class="fa fa-user-circle"></i> My Account </a>
-                                                                        </li>
-
-                                                                        @else
-                                                                        <li class="pull-right ">
-                                                                            <a href="{{ url('user-login') }}">
-                                                                                <i class="fa fa-user-circle"></i>
-                                                                                Register
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="pull-right ">
-                                                                            <a href="{{ url('user-login') }}">
-                                                                                <i class="fa fa-user-circle"></i>
-                                                                                Login
-                                                                            </a>
-                                                                        </li>
-
-
-                                                                        @endif
-                                                                        <li class="pull-right ">
-                                                                            <a href="{{ url('refill-request') }}">
-                                                                                <i class="fa fa-pencil-square-o"></i>
-                                                                                Refill Request
-                                                                            </a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </nav>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </header>
+         @include('frontendlayout.head')
+@include('frontendlayout.header')
+@include('frontendlayout.nav')
 
                                             <div class="mobile-nav">
                                                 <div class="mobile-nav-wrapper">
@@ -512,7 +337,7 @@
                         </div>
                     </div>
                     @include('includes.messages')
-
+                    <input type="text" id="basicExample" name="timepicker">
                     <div class="row">
                         <div class="col-md-6 col-xs-12">
                             <div class="featured-box featured-box-primary featured-box-flat featured-box-text-left mt-md">
@@ -979,7 +804,8 @@
 
                     
 
-                    @include('Theme::footer')
+
+                    @include('Theme::footer2')
 
                     <script>
                         $(window).on('load', function () {

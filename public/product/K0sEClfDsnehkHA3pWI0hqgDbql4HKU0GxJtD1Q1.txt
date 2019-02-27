@@ -1,0 +1,24 @@
+ Vue.component('coupon',{
+ 	template:`<input placeholder="Enter coupon Here" @blur="applied">
+ 	`,
+methods:{
+	applied(){
+		this.$emit('applied');
+}
+}
+ });
+
+new Vue({
+el:'#app',
+data:{
+	couponapplied:false
+},
+
+methods:{
+	oncouponapplied(){
+		 this.couponapplied=true;
+	}
+}
+ 
+});
+ 

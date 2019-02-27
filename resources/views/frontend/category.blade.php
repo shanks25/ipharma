@@ -88,9 +88,9 @@
                 						@foreach($product->media->take(2) as $i=>$media)
 
                 						@if($i == 0)
-                						<img src="{{ Theme::publicImg('tb_' . $media->src) }}" alt="{{ $product->name }}"/>
+                						<img src="{{ asset($product->image) }}" alt="{{ $product->name }}"/>
                 						@else
-                						<img  alt="{{ $product->name }}" class="product-hover-image" src="{{ Theme::publicImg('tb_' . $media->src) }}"/>
+                						<img  alt="{{ $product->name }}" class="product-hover-image" src="{{ asset($product->image) }}"/>
                 						@endif
 
                 						@endforeach
@@ -156,9 +156,9 @@
                 						@foreach($product->media->take(2) as $i=>$media)
 
                 						@if($i == 0)
-                						<img src="{{ Theme::publicImg('tb_' . $media->src) }}" alt="{{ $product->name }}"/>
+                						<img src="{{ asset($product->image) }}" alt="{{ $product->name }}"/>
                 						@else
-                						<img  alt="{{ $product->name }}" class="product-hover-image" src="{{ Theme::publicImg('tb_' . $media->src) }}"/>
+                						<img  alt="{{ $product->name }}" class="product-hover-image" src="{{ asset($product->image) }}"/>
                 						@endif
 
                 						@endforeach

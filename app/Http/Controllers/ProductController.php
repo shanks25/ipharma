@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\tag;
+use Carbon\Carbon;
 use Datatables;
 use Epharma\Model\Attribute;
 use Epharma\Model\AttributeOption;
@@ -78,7 +79,7 @@ class ProductController extends Controller {
         $product->min_quantity = $request->min_quantity;
         $product->is_available = $request->is_available;
         // $product->producttype = $request->producttype;
-        $product->image = request()->file('file')->storeAs('product')->getClientOriginalName();
+        $product->image = request()->file('file')->store('newdesign/product');
         $product->save();
 
         Carbon::now();

@@ -1,0 +1,87 @@
+.top_nav .navbar-right{
+    width: 25%;
+}
+
+.alert{
+    margin-top: 3px;
+    margin-bottom: 0;
+}
+
+
+.dataTable{
+    table-layout:fixed;
+    width: 98% !important; 
+}
+
+
+
+
+#addItem .modal-body{
+    min-height: 300px;
+}
+
+.create-order .select2-container{
+    width: 100% !important;
+}
+
+
+.dropzone{
+    min-height: 200px;
+}
+
+.dropzone .dz-preview{
+    margin: 14px;
+}
+
+
+.dropzone .dz-message {
+    font-size: 2em;
+}
+
+.list-group-item>i{
+    float: right;
+    font-size: 1.3em;
+}
+
+
+
+
+
+form:after{
+  display: none;
+}
+
+
+
+
+
+
+
+
+/* Dynamic Menu */
+.dd-item{
+  line-height: 25px;
+}
+
+
+.dd3-content{
+  margin: 8px 0;
+  background: #FFFFFF;
+}
+
+.dd3-content:hover{
+  color: black;
+  background: #FFFFFC;
+}
+
+.dd3-handle{
+  height: 36px;
+}
+
+
+
+
+/* attribute */
+#attribute-options{
+  display: none;
+}

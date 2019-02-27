@@ -1,0 +1,117 @@
+.search{color:#fff;font-weight:700}
+.btn-block{background:transparent!important;padding:7px 0px 5px 0px!important;}
+.btn-primary{background-color:#fff!important;color:#555!important;border-color:transparent!important;}
+.btn-primary:hover{background-color:#ddd !important;border-color:transparent!important;}
+
+
+
+/*.search {
+   margin-top: -10%;
+}*/
+.search .form-section{
+    background:#006fa6;
+    /*border: 2px solid #414141;*/
+    border-radius: 5px;
+    padding: 10px 20px;
+    opacity: 0.8;
+}
+.serchtile{
+    color:#fff;
+    margin-bottom: 5px;
+    padding-bottom: 12px;
+}
+/*#myCarousel {
+    height: 580px;
+}*/
+
+.carousel,
+.item,
+.active {
+    /*height: 100%;*/
+}
+
+.carousel-inner {
+    /*height: 100%;*/
+}
+/* The controlsy */
+.carousel-control {
+    top: 50% !important;
+    left: -12px;
+    height: 40px !important;
+    width: 40px !important;
+    background: none repeat scroll 0 0 #222222;
+    border: 4px solid #FFFFFF;
+    border-radius: 23px 23px 23px 23px;
+    /*margin-top: 90px;*/
+    font-size: 18px !important;
+    font-weight: bold;
+}
+.carousel-control.left {
+    left: 75px !important;
+}
+.carousel-control.right {
+    right: 75px !important;
+}
+
+.carousel-caption {
+    padding-bottom: 130px !important;
+    opacity: 0;
+}
+
+.carousel .carousel-inner .item .carousel-caption {
+    opacity: 0;
+    -webkit-transition: 2s all ease-in-out .1s;
+    -moz-transition: 2s all ease-in-out .1s; 
+    -ms-transition: 2s all ease-in-out .1s; 
+    -o-transition: 2s all ease-in-out .1s; 
+    transition: 2s all ease-in-out .1s; 
+}
+.carousel .carousel-inner .item.active .carousel-caption {
+    opacity: 1;
+    -webkit-transition: 2s all ease-in-out .1s;
+    -moz-transition: 2s all ease-in-out .1s; 
+    -ms-transition: 2s all ease-in-out .1s; 
+    -o-transition: 2s all ease-in-out .1s; 
+    transition: 2s all ease-in-out .1s;    
+}
+.carousel-caption h2 {
+    font-size: 3em;
+    font-weight: 700;
+}
+
+/* Background images are set within the HTML using inline CSS, not here */
+
+.fill {
+    width: 100%;
+    height: 400px;
+    background-position: top;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+.carousel-buttons {
+    z-index: 10;
+    position: absolute;
+    width: 100%;
+    color:#fff;
+    top:20px;
+}
+@media only screen and (min-width: 768px) and (max-width: 990px){
+    .carousel-caption h2 {font-size: 2.6em;}
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px){
+    .carousel-control.left {left: 10px !important;}
+    .carousel-control.right {right: 10px !important;}
+    .carousel-caption h2 {font-size: 2.2em;}
+}
+
+@media only screen and (min-width: 320px) and (max-width: 479px){
+    #myCarousel {height: 361px;}
+    .carousel-control.left {left: 5px !important;}
+    .carousel-control.right {right: 5px !important;}
+    .carousel-caption {padding-bottom: 50px !important;}
+    .search { margin-top: 0%;}
+    .carousel-caption h2 {font-size: 2em;}
+}

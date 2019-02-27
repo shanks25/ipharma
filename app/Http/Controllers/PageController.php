@@ -320,22 +320,22 @@ class PageController extends Controller {
 
     public function setdefault($id) {
 
-     $default = Address::find($id);
-     $default->defaultaddress ='true';
-     $default->save();
+       $default = Address::find($id);
+       $default->defaultaddress ='true';
+       $default->save();
 
-     $all=Address::all()->whereNotIn('id', $default->id);
-     foreach ($all as $address) {
-       $address->defaultaddress='false';
-       $address->save();
-   }
+       $all=Address::all()->whereNotIn('id', $default->id);
+       foreach ($all as $address) {
+         $address->defaultaddress='false';
+         $address->save();
+     }
 
-   return back();
+     return back();
 
-}
+ }
 
 
-public function addToCart(Request $request) {
+ public function addToCart(Request $request) {
     $product = Product::with('media')->find($request->id);
 
     $option = [];
@@ -464,29 +464,29 @@ public function checkout() {
 //        return $data['user_info']->address[0];
         return Theme::view('checkout', $data);
     } else {
-       $data['product'] = Product::with('media', 'typeAttrOptions.attributeValue', 'packAttrOptions.attributeValue', 'genericAttrOptions.attributeValue', 'terms', 'brandattrOptions.attributeValue')
-       ->where('products.is_available', 1)
-       ->where('products.delete_status', 0)
-       ->find(1);
-       $categories = $data['product']->categories()->pluck('id');
-       $data['related_product'] = Product::with('media', 'terms', 'brandattrOptions.attributeValue')->whereHas(
+     $data['product'] = Product::with('media', 'typeAttrOptions.attributeValue', 'packAttrOptions.attributeValue', 'genericAttrOptions.attributeValue', 'terms', 'brandattrOptions.attributeValue')
+     ->where('products.is_available', 1)
+     ->where('products.delete_status', 0)
+     ->find(1);
+     $categories = $data['product']->categories()->pluck('id');
+     $data['related_product'] = Product::with('media', 'terms', 'brandattrOptions.attributeValue')->whereHas(
         'categories', function($query)use ($categories) {
             $query->whereIn('term_id', $categories);
         }
     )->whereNotIn('products.id', [$data['product']->id])
-       ->where('products.is_available', 1)
-       ->where('products.delete_status', 0)
-       ->take(10)->get();
-       $shipping = Option::get();
-       $data['delivery_time'] = DeliveryTime::select('delivery_time')->get();
-       $data['district'] = District::pluck('name', 'id');
-       $data['areas'] = Area::where('district_id', 1)->pluck('name', 'id');
-       $data['deliverytypes'] =  deliverytype::all();
-       $data['freeShip'] = $shipping[5]->value;
-       $data['regular'] =  deliverytype::first()->price;
+     ->where('products.is_available', 1)
+     ->where('products.delete_status', 0)
+     ->take(10)->get();
+     $shipping = Option::get();
+     $data['delivery_time'] = DeliveryTime::select('delivery_time')->get();
+     $data['district'] = District::pluck('name', 'id');
+     $data['areas'] = Area::where('district_id', 1)->pluck('name', 'id');
+     $data['deliverytypes'] =  deliverytype::all();
+     $data['freeShip'] = $shipping[5]->value;
+     $data['regular'] =  deliverytype::first()->price;
 
-       return Theme::view('checkout', $data);
-   }
+     return Theme::view('checkout', $data);
+ }
 //        $data['district'] = District::pluck('name', 'id');
 //        return Theme::view('checkout', $data);
 }
@@ -1009,7 +1009,7 @@ public function fosterPayment($order, $billing) {
         $data['billing'] = User::find(auth()->id());
 
         $data['shipping'] = Address::with('zilla', 'upazilla')->where('user_id',auth()->id())->first();
-        return Theme::view('order_info', $data);
+        return view('frontend.order_info', $data);
     }
 
     public function user_login() {
@@ -1088,12 +1088,12 @@ public function registration() {
 public function user_index() {
     $data['userInfo'] = Auth::user();
     $data['address'] = Address::where('user_id', $data['userInfo']->id)->first();
-    return Theme::view('user_index', $data);
+    return  view('frontend.user_index', $data);
 }
 
 public function user_edit() {
     $data['userInfo'] = Auth::user();
-    return Theme::view('user_edit', $data);
+    return  view('frontend.user_edit', $data);
 }
 
 public function useraddresslist() {
@@ -1107,24 +1107,35 @@ public function useraddresslist() {
     return Theme::view('useraddresslist', $data);
 }
 
+public function newuseraddresslist() {
+    $userId = Auth::user()->id;
+    $data['userInfo'] = Auth::user();
+    $data['district'] = District::pluck('name', 'id');
+    $data['areas'] = Area::where('district_id', 1)->pluck('name', 'id');
+    $data['addresss'] = Address::where('user_id', $userId)->get();
+
+
+    return view('frontend.useraddresslist', $data);
+}
+
 public function addnewuseraddress()
 {
- $userId = Auth::user()->id;
- $data['userInfo'] = Auth::user();
- $data['district'] = District::pluck('name', 'id');
- $data['areas'] = Area::where('district_id', 1)->pluck('name', 'id');
- $data['address'] = Address::where('user_id', $userId)->first();
- return Theme::view('addnewuseraddress', $data);
+   $userId = Auth::user()->id;
+   $data['userInfo'] = Auth::user();
+   $data['district'] = District::pluck('name', 'id');
+   $data['areas'] = Area::where('district_id', 1)->pluck('name', 'id');
+   $data['address'] = Address::where('user_id', $userId)->first();
+   return  view('frontend.addnewuseraddress', $data);
 }
 
 public function editaddress($id)
 {
- $userId = Auth::user()->id;
- $data['userInfo'] = Auth::user();
- $data['district'] = District::pluck('name', 'id');
- $data['areas'] = Area::where('district_id', 1)->pluck('name', 'id');
- $data['address'] = Address::find($id);
- return Theme::view('edituseraddress', $data);
+   $userId = Auth::user()->id;
+   $data['userInfo'] = Auth::user();
+   $data['district'] = District::pluck('name', 'id');
+   $data['areas'] = Area::where('district_id', 1)->pluck('name', 'id');
+   $data['address'] = Address::find($id);
+   return view('frontend.edituseraddress', $data);
 }
 
 
@@ -1206,7 +1217,7 @@ public function user_order_history() {
         // $data['shipping'] = Address::find($data['userOrder']->orders[0]->shipping_id);
 //        return $data['userOrder']->orders;
 
-    return Theme::view('user_order_history', $data);
+    return view('frontend.user_order_history', $data);
 }
 
 public function review_customer() {
@@ -1278,15 +1289,15 @@ public function contact_us() {
 }
 
 public function newcontact_us() {
- return view('frontend.contactus');
+   return view('frontend.contactus');
 }
 
 public function newnews() {
- return view('frontend.news');
+   return view('frontend.news');
 }
 
 public function newabout_us() {
- return view('frontend.aboutus');
+   return view('frontend.aboutus');
 }
 
 public function customer_service() {
@@ -1408,18 +1419,18 @@ public function how_to_order() {
 }
 
 public function newhow_to_order() {
-   return view('frontend.howtoorder');
+ return view('frontend.howtoorder');
 }
 
 public function partners() {
     return Theme::view('partners');
 }
 public function newpartners() {
-      return view('frontend.partners');
+  return view('frontend.partners');
 }
 
 public function newprivacy_policy() {
-      return view('frontend.policy');
+  return view('frontend.policy');
 }
 
 
@@ -1683,7 +1694,7 @@ public function pdf()
 {
 
 
-   return view('invoiced');
+ return view('invoiced');
 
 }
 
